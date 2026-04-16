@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sauna Briefs — Homepage Mockup</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0D0D0B;
+    --surface: #1A1A17;
+    --border: rgba(237,234,224,0.08);
+    --text: #EDEAE0;
+    --muted: #A0A090;
+    --accent: #93C5D4;
+    --accent-dim: rgba(147,197,212,0.12);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 48px;
+    background: rgba(13,13,11,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(147,197,212,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid rgba(147,197,212,0.25);
+    border-radius: 2px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 40px;
+  }
+
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .hero h1 .accent { color: var(--accent); display: block; }
+
+  .hero-sub {
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 28px auto 44px;
+  }
+
+  .hero-input-row {
+    display: flex;
+    gap: 0;
+    max-width: 460px;
+    width: 100%;
+  }
+
+  .hero-input-row input {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid rgba(237,234,224,0.12);
+    border-right: none;
+    color: var(--text);
+    font-size: 0.875rem;
+    padding: 16px 20px;
+    outline: none;
+    border-radius: 2px 0 0 2px;
+  }
+
+  .hero-input-row input::placeholder { color: var(--muted); }
+
+  .hero-input-row button {
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .hero-disclaimer {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 14px;
+    opacity: 0.7;
+  }
+
+  .hero-disclaimer span { color: var(--accent); }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: flex;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .stat {
+    flex: 1;
+    padding: 36px 24px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-value {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 8px;
+    line-height: 1.5;
+    max-width: 160px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* SECTION */
+  section {
+    padding: 100px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 60px;
+  }
+
+  /* WHY IT MATTERS — cards */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .why-card {
+    background: var(--bg);
+    padding: 40px 32px;
+  }
+
+  .why-icon {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .why-card h3 {
+    font-size: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .why-card p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .why-card p strong { color: var(--accent); font-weight: 700; }
+
+  /* HOW IT WORKS */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .step-num {
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+  }
+
+  .step h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .step p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .step-divider {
+    width: 32px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.4;
+  }
+
+  /* EMAIL CTA SECTION */
+  .cta-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 48px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.0;
+    margin-bottom: 20px;
+  }
+
+  .cta-section h2 span { color: var(--accent); }
+
+  .cta-section p {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 44px;
+    line-height: 1.7;
+  }
+
+  .cta-input-row {
+    display: flex;
+    gap: 0;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  .cta-input-row input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid rgba(237,234,224,0.14);
+    border-right: none;
+    color: var(--text);
+    font-size: 0.875rem;
+    padding: 16px 20px;
+    outline: none;
+    border-radius: 2px 0 0 2px;
+  }
+
+  .cta-input-row input::placeholder { color: var(--muted); }
+
+  .cta-input-row button {
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .cta-disclaimer {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 14px;
+    opacity: 0.6;
+  }
+
+  .cta-disclaimer span { color: var(--accent); opacity: 1; }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-logo {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .footer-logo span { color: var(--accent); }
+
+  .footer-copy {
+    font-size: 0.68rem;
+    color: var(--muted);
+    opacity: 0.5;
+  }
+
+  /* ANNOTATION */
+  .annotation {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: rgba(147,197,212,0.1);
+    border: 1px solid rgba(147,197,212,0.3);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 0.68rem;
+    color: var(--accent);
+    max-width: 220px;
+    line-height: 1.5;
+    z-index: 999;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sauna <span>Briefs</span></div>
+  <button class="nav-cta">Join Waitlist</button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <div class="hero-badge-dot"></div>
+    Launching Soon
+  </div>
+
+  <h1>
+    Stay In<br/>The Sauna.
+    <span class="accent">Keep It Cold.</span>
+  </h1>
+
+  <p class="hero-sub">
+    The world's first brief with a built-in ice pack pouch — so you can sauna longer without sacrificing your testosterone or fertility.
+  </p>
+
+  <div class="hero-input-row">
+    <input type="email" placeholder="Enter your email" />
+    <button>Get Early Access</button>
+  </div>
+  <p class="hero-disclaimer">Join the waitlist. <span>Get 20% off at launch.</span> No spam, ever.</p>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-value">+37°C</div>
+    <div class="stat-label">Temperature at which sperm production drops</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">−12%</div>
+    <div class="stat-label">Testosterone reduction from chronic heat exposure</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value">80°C</div>
+    <div class="stat-label">Average sauna temperature. Your body handles it. Your boys don't.</div>
+  </div>
+</div>
+
+<!-- WHY IT MATTERS -->
+<section>
+  <p class="section-label">Why It Matters</p>
+  <h2 class="section-title">The Sauna Is Good.<br/>The Heat Below Is Not.</h2>
+  <p class="section-sub">You're doing everything right — sauna, cold plunge, recovery. But every session you spend in the heat is silently working against your testosterone and fertility.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🌡️</div>
+      <h3>Heat Kills Sperm</h3>
+      <p>Sperm production requires temperatures <strong>2–4°C below body temp</strong>. A 20-minute sauna session can suppress production for days.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Testosterone Takes The Hit</h3>
+      <p>Chronic scrotal heat exposure has been linked to <strong>reduced Leydig cell function</strong> — the cells that produce testosterone.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🧊</div>
+      <h3>Cold Is The Fix</h3>
+      <p>Targeted cooling during sauna sessions <strong>preserves fertility and hormone levels</strong> — without cutting your session short.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="border-top: 1px solid var(--border); padding-top: 100px;">
+  <p class="section-label">How It Works</p>
+  <h2 class="section-title">Engineered For<br/>The Heat.</h2>
+  <p class="section-sub">Three steps. Zero compromise.</p>
+
+  <div class="how-grid">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-divider"></div>
+      <h3>Insert The Ice Pack</h3>
+      <p>Drop a slim ice pack into the built-in front pouch. Stays secure. Doesn't move.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-divider"></div>
+      <h3>Go In The Sauna</h3>
+      <p>Wear them in like normal briefs. The pouch sits against your body. You stay cool where it counts.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-divider"></div>
+      <h3>Sauna Longer</h3>
+      <p>More sessions, more heat, none of the hormonal downside. Your recovery, your performance, protected.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CTA -->
+<div class="cta-section">
+  <h2>Your Boys<br/><span>Deserve Better.</span></h2>
+  <p>Be first in line when we launch. Early access members get 20% off — no code needed.</p>
+  <div class="cta-input-row">
+    <input type="email" placeholder="Enter your email" />
+    <button>Claim My Spot</button>
+  </div>
+  <p class="cta-disclaimer">Join <span>847 people</span> already on the waitlist.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Sauna <span>Briefs</span></div>
+  <div class="footer-copy">© 2026 Sauna Briefs. All rights reserved.</div>
+</footer>
+
+<div class="annotation">
+  📐 Mockup — scroll to see all sections. This is the full page flow.
+</div>
+
+</body>
+</html>

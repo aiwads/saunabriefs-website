@@ -141,7 +141,7 @@ export default function Home() {
       <div className="product">
         <div className="product-visual" style={{ position: "relative" }}>
           <Image
-            src="/product-hero-v2.png"
+            src="/product-hero-v4.png"
             alt="Sauna Briefs product"
             fill
             quality={95}

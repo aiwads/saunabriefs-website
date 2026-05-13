@@ -100,6 +100,25 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:0
 .sticky-bar-email-row button { height:34px; padding:0 16px; background:#5B8FA8; color:#0D0D0B; font-size:0.65rem; font-weight:800; letter-spacing:0.12em; text-transform:uppercase; border:none; cursor:pointer; font-family:inherit; white-space:nowrap; }
 .sticky-bar-close { background:none; border:none; cursor:pointer; color:rgba(255,255,255,0.4); font-size:1rem; line-height:1; margin-left:16px; padding:0; font-family:inherit; }
 
+/* MODAL */
+.modal-overlay { position:fixed; inset:0; z-index:10000; background:rgba(13,13,11,0.85); backdrop-filter:blur(6px); display:flex; align-items:center; justify-content:center; padding:24px; animation:fade-in 0.3s ease; }
+.modal { position:relative; background:var(--surface); border:1px solid var(--border); max-width:440px; width:100%; padding:52px 44px 44px; animation:slide-up 0.35s ease; }
+.modal-close { position:absolute; top:18px; right:20px; background:none; border:none; cursor:pointer; color:var(--muted); font-size:0.9rem; line-height:1; font-family:inherit; padding:4px; }
+.modal-close:hover { color:var(--text); }
+.modal-eyebrow { font-size:0.58rem; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:var(--accent); margin-bottom:16px; }
+.modal-headline { font-size:clamp(1.8rem,4vw,2.6rem); font-weight:900; line-height:0.95; letter-spacing:-0.03em; text-transform:uppercase; margin-bottom:20px; }
+.modal-headline em { font-style:normal; color:var(--accent); display:block; }
+.modal-desc { font-size:0.82rem; color:rgba(237,234,224,0.6); line-height:1.7; margin-bottom:28px; }
+.modal-desc strong { color:var(--accent); font-weight:600; }
+.modal-form-row { display:flex; margin-bottom:12px; }
+.modal-form-row input { flex:1; background:rgba(13,13,11,0.6); border:1px solid rgba(237,234,224,0.15); border-right:none; color:var(--text); font-size:0.78rem; padding:14px 16px; outline:none; font-family:'Inter',sans-serif; min-width:0; }
+.modal-form-row input::placeholder { color:var(--muted); }
+.modal-form-row button { background:var(--accent); color:var(--bg); font-size:0.62rem; font-weight:800; letter-spacing:0.14em; text-transform:uppercase; padding:14px 18px; border:none; cursor:pointer; white-space:nowrap; font-family:'Inter',sans-serif; transition:background 0.2s ease; }
+.modal-form-row button:hover { background:#7AAFC8; }
+.modal-fine { font-size:0.6rem; color:var(--muted); letter-spacing:0.04em; }
+@keyframes fade-in { from { opacity:0 } to { opacity:1 } }
+@keyframes slide-up { from { opacity:0; transform:translateY(16px) } to { opacity:1; transform:translateY(0) } }
+
 @media (max-width: 768px) {
   nav { padding:0 24px; }
   .hero-content { flex-direction:column; padding:0 24px 80px; gap:32px; }
@@ -107,4 +126,5 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:0
   .below { grid-template-columns:1fr; gap:48px; padding:64px 24px; }
   .product { grid-template-columns:1fr; gap:40px; padding:64px 24px; }
   .sticky-bar-email-row { display:none !important; }
+  .modal { padding:40px 28px 32px; }
 }

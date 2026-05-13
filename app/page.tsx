@@ -14,6 +14,7 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [barVisible, setBarVisible] = useState(false);
   const [barDismissed, setBarDismissed] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -30,6 +31,18 @@ export default function Home() {
       window.removeEventListener("resize", update);
     };
   }, []);
+
+  useEffect(() => {
+    if (!localStorage.getItem("waitlist-seen")) {
+      const t = setTimeout(() => setModalOpen(true), 1000);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
+  const closeModal = () => {
+    localStorage.setItem("waitlist-seen", "1");
+    setModalOpen(false);
+  };
 
   const tickerItems = [...TICKER_ITEMS, ...TICKER_ITEMS];
 
@@ -50,6 +63,8 @@ export default function Home() {
           src="/winner.png"
           alt="Sauna Briefs"
           fill
+          sizes="100vw"
+          quality={90}
           style={{ objectFit: "cover", objectPosition: "center 30%" }}
           priority
         />
@@ -126,9 +141,11 @@ export default function Home() {
       <div className="product">
         <div className="product-visual" style={{ position: "relative" }}>
           <Image
-            src="/product-gel.png"
+            src="/product-hero-v2.png"
             alt="Sauna Briefs product"
             fill
+            quality={95}
+            sizes="(max-width: 768px) 100vw, 50vw"
             style={{ objectFit: "cover" }}
           />
           <div className="product-tag">The Original</div>
@@ -172,6 +189,27 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {modalOpen && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>✕</button>
+            <p className="modal-eyebrow">Early Access</p>
+            <h2 className="modal-headline">
+              Protect What<br /><em>Matters.</em>
+            </h2>
+            <p className="modal-desc">
+              Join the waitlist and get <strong>20% off</strong> when Sauna Briefs launches.
+              No spam. Just your spot in line.
+            </p>
+            <div className="modal-form-row">
+              <input type="email" placeholder="your@email.com" />
+              <button onClick={closeModal}>Join Waitlist</button>
+            </div>
+            <p className="modal-fine">20% off at launch · Unsubscribe anytime</p>
+          </div>
+        </div>
+      )}
 
       {!barDismissed && (
         <div

@@ -1,65 +1,191 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
+const TICKER_ITEMS = [
+  { stat: "80°C", text: "average sauna temp" },
+  { stat: "+37°C", text: "threshold for sperm damage" },
+  { stat: "−12%", text: "testosterone from chronic heat" },
+  { stat: null, text: "your sessions. ", bold: "your biology. protected." },
+];
+
 export default function Home() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const [barVisible, setBarVisible] = useState(false);
+  const [barDismissed, setBarDismissed] = useState(false);
+
+  useEffect(() => {
+    const hero = heroRef.current;
+    if (!hero) return;
+    const update = () => {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      setBarVisible(heroBottom < window.innerHeight / 2);
+    };
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    update();
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  const tickerItems = [...TICKER_ITEMS, ...TICKER_ITEMS];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      <nav>
+        <div className="nav-logo">Sauna Briefs</div>
+        <div className="nav-right">
+          <span className="nav-link">Science</span>
+          <span className="nav-link">How It Works</span>
+          <a href="#waitlist" className="nav-btn">Waitlist</a>
+        </div>
+      </nav>
+
+      <div className="hero" ref={heroRef} style={{ position: "relative" }}>
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          className="hero-img"
+          src="/winner.png"
+          alt="Sauna Briefs"
+          fill
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        <div className="hero-overlay-bottom" />
+        <div className="hero-overlay-left" />
+        <div className="hero-glow" />
+        <div className="hero-content">
+          <div className="hero-left">
+            <h1>
+              <span className="h1-line1">All The Heat.</span>
+              <em>None Of The Damage.</em>
+            </h1>
+          </div>
+          <div className="hero-right">
+            <p className="hero-right-label">Early Access</p>
+            <p className="hero-desc">
+              The Original Sauna Briefs™ — with a built-in ice pack pouch. Sauna as long as
+              you want, without cooking your testosterone or fertility.
+            </p>
+            <div id="waitlist" className="hero-form-row">
+              <input type="email" placeholder="your@email.com" />
+              <button>Get Access</button>
+            </div>
+            <p className="hero-fine">
+              <strong>20% off at launch</strong> · No spam.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="ticker">
+        <div className="ticker-inner">
+          {tickerItems.map((item, i) => (
+            <div key={i} className="ticker-item">
+              {item.stat && <span>{item.stat}</span>}
+              {item.text}
+              {item.bold && <span>{item.bold}</span>}
+              <div className="ticker-dot" />
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="below">
+        <h2>
+          The Sauna<br />Is Good.<br />
+          <em>The Heat<br />Isn&apos;t.</em>
+        </h2>
+        <div>
+          <div className="below-stat">
+            <div className="below-stat-num">+37°C</div>
+            <div className="below-stat-text">
+              The temperature at which sperm production begins to drop. Your sauna runs at
+              80°C. Do the math.
+            </div>
+          </div>
+          <div className="below-stat">
+            <div className="below-stat-num">−12%</div>
+            <div className="below-stat-text">
+              Reduction in testosterone linked to chronic scrotal heat exposure. Every
+              session adds up.
+            </div>
+          </div>
+          <div className="below-stat">
+            <div className="below-stat-num">72h</div>
+            <div className="below-stat-text">
+              How long sperm suppression can last after a single sauna session. You
+              didn&apos;t know that. Now you do.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="product">
+        <div className="product-visual" style={{ position: "relative" }}>
+          <Image
+            src="/product-gel.png"
+            alt="Sauna Briefs product"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+          <div className="product-tag">The Original</div>
+        </div>
+        <div className="product-info">
+          <p className="product-label">Sauna Briefs™</p>
+          <h2 className="product-name">
+            Built For<br /><em>The Heat.</em>
+          </h2>
+          <p className="product-desc">
+            The only brief engineered for the sauna — with a built-in ice pack pouch to
+            keep your core temperature where it belongs.
           </p>
+          <div className="product-feature-list">
+            <div className="product-feature">
+              <div className="product-feature-dot" />
+              <div className="product-feature-text">
+                Built-in ice pack pouch — holds a standard slim ice pack
+              </div>
+            </div>
+            <div className="product-feature">
+              <div className="product-feature-dot" />
+              <div className="product-feature-text">
+                Heat-resistant, moisture-wicking performance fabric
+              </div>
+            </div>
+            <div className="product-feature">
+              <div className="product-feature-dot" />
+              <div className="product-feature-text">
+                Designed to be worn for full sauna sessions
+              </div>
+            </div>
+          </div>
+          <div className="product-price-row">
+            <span className="product-price">$49</span>
+            <span className="product-price-note">20% off at launch</span>
+          </div>
+          <div className="product-cta">
+            <button className="product-btn">Notify Me at Launch</button>
+            <p className="product-btn-note">Launching soon — be first in line.</p>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      {!barDismissed && (
+        <div
+          className="sticky-bar"
+          style={{ opacity: barVisible ? 1 : 0, pointerEvents: barVisible ? "auto" : "none" }}
+        >
+          <span className="sticky-bar-label">20% off at launch</span>
+          <div className="sticky-bar-email-row">
+            <input type="email" placeholder="your@email.com" />
+            <button>Join</button>
+          </div>
+          <button className="sticky-bar-close" onClick={() => setBarDismissed(true)}>✕</button>
         </div>
-      </main>
-    </div>
+      )}
+    </>
   );
 }

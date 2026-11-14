@@ -35,7 +35,7 @@ export default function Home() {
       <div className="hero" ref={heroRef} style={{ position: "relative" }}>
         <Image
           className="hero-img"
-          src="/winner.png"
+          src="/hero.jpg"
           alt="Man in a sauna wearing Sauna Briefs"
           fill
           sizes="100vw"

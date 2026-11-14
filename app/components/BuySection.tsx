@@ -7,9 +7,9 @@ import { SIZES, PRICE_CENTS, MAX_QTY, BOX_CONTENTS, formatPrice, type Size } fro
 import SizeChart from "./SizeChart";
 
 const IMAGES = [
-  { src: "/product-hero-v4.png", alt: "Sauna Briefs in black" },
-  { src: "/product-hero-v2.png", alt: "Sauna Briefs with ice pack pouch" },
-  { src: "/product-gel.png", alt: "Slim gel ice pack" },
+  { src: "/product-main.jpg", alt: "Sauna Briefs in black" },
+  { src: "/product-alt.jpg", alt: "Sauna Briefs with ice pack pouch" },
+  { src: "/product-gel.jpg", alt: "Slim gel ice pack" },
 ];
 
 type Stock = Record<Size, number> | null; // null = unknown; the server is the real gate

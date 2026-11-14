@@ -9,7 +9,7 @@ import { getStockBySize } from "../lib/stock";
 
 async function main() {
   const stripe = getStripe();
-  const mode = process.env.STRIPE_SECRET_KEY?.startsWith("sk_live") ? "LIVE" : "TEST";
+  const mode = process.env.STRIPE_SECRET_KEY?.includes("_live_") ? "LIVE" : "TEST";
   console.log(`Stripe mode: ${mode}`);
 
   // products.list, not products.search: search indexing lags, so a quick re-run could create a duplicate.

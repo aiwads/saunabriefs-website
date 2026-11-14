@@ -80,7 +80,7 @@ In Stripe: **Developers → Webhooks → Add endpoint**
 ## 10. Go live
 
 1. Finish Stripe's business verification and attach your **business bank account**.
-2. In Stripe, switch to **Live mode** and copy the live secret key (`sk_live_`).
+2. In Stripe, switch to **Live mode** and create a live secret key (`sk_live_`, or `rk_live_` for a restricted key — "Full access except sensitive operations" is enough).
 3. Run the setup script once with the live key (live mode has its own products), then set real stock counts (step 3) in live mode.
 4. Add the live webhook (step 7, in live mode) and put the live key and live webhook secret into Vercel's **Production** env vars. Redeploy.
 5. **Place one real order** with your own card. Check that you land on the thank-you page, get the receipt, and see stock drop by 1. Then refund it in Stripe and add 1 back to stock.

@@ -14,7 +14,8 @@ export async function POST(request: NextRequest) {
   try {
     event = stripe.webhooks.constructEvent(body, signature, secret);
   } catch (err) {
-    console.error("webhook signature failed", err);
+    // Log the message only: Stripe's error object carries the full payload, including customer name and address.
+    console.error("webhook signature failed:", err instanceof Error ? err.message.split("\n")[0] : "unknown error");
     return Response.json({ error: "Bad signature" }, { status: 400 });
   }
 
@@ -23,7 +24,7 @@ export async function POST(request: NextRequest) {
     console.log(`webhook ${event.type} ${event.id}: ${result}`);
     return Response.json({ received: true });
   } catch (err) {
-    console.error(`webhook ${event.type} ${event.id} failed`, err);
+    console.error(`webhook ${event.type} ${event.id} failed:`, err instanceof Error ? err.message : "unknown error");
     return Response.json({ error: "Handler failed" }, { status: 500 }); // 500 → Stripe retries
   }
 }

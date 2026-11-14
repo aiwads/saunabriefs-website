@@ -126,6 +126,19 @@ describe("BuySection", () => {
     expect(JSON.parse(String(init.body))).toEqual({ size: "XL", quantity: 1 });
   });
 
+  it("re-enables Buy when the shopper comes Back from Stripe", async () => {
+    mockFetch({ S: 5, M: 5, L: 5, XL: 5 }, () => Response.json({ url: "https://checkout.stripe.com/c/x" }));
+    const user = userEvent.setup();
+    render(<BuySection />);
+    await user.click(await screen.findByRole("button", { name: "M" }));
+    await user.click(buyBtn());
+    await waitFor(() => expect(assign).toHaveBeenCalled());
+    expect(buyBtn()).toBeDisabled();
+    window.dispatchEvent(Object.assign(new Event("pageshow"), { persisted: true }));
+    await waitFor(() => expect(buyBtn()).toBeEnabled());
+    expect(buyBtn()).toHaveTextContent("Buy Now — $45");
+  });
+
   it("anchors at #shop", () => {
     mockFetch(null);
     const { container } = render(<BuySection />);

@@ -56,6 +56,15 @@ describe("buildCheckoutParams", () => {
   });
 });
 
+describe("checkout session expiry", () => {
+  it("expires unpaid sessions after 30 minutes to keep the oversell window small", () => {
+    const before = Math.floor(Date.now() / 1000);
+    const p = buildCheckoutParams({ priceId: "p", size: "M", quantity: 1, origin: "https://x", taxEnabled: false });
+    expect(p.expires_at).toBeGreaterThanOrEqual(before + 30 * 60);
+    expect(p.expires_at).toBeLessThanOrEqual(before + 30 * 60 + 5);
+  });
+});
+
 describe("checkStock", () => {
   it("rejects quantity above stock", () => {
     expect(checkStock({ priceId: "p", stock: 2 }, "M", 3)).toBe("Only 2 left in size M.");

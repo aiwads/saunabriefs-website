@@ -34,6 +34,13 @@ export default function BuySection() {
     };
   }, []);
 
+  // Browser Back from Stripe can restore this page from the back/forward cache with the button still pending.
+  useEffect(() => {
+    const onShow = (e: PageTransitionEvent) => e.persisted && setPending(false);
+    window.addEventListener("pageshow", onShow);
+    return () => window.removeEventListener("pageshow", onShow);
+  }, []);
+
   const inStock = (s: Size) => stock === null || stock[s] > 0;
   const allSoldOut = stock !== null && SIZES.every((s) => stock[s] <= 0);
   const maxQty = size && stock ? Math.min(MAX_QTY, stock[size]) : MAX_QTY;

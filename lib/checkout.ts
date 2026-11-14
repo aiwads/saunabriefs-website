@@ -43,6 +43,8 @@ export function buildCheckoutParams(a: {
       },
     ],
     automatic_tax: { enabled: a.taxEnabled },
+    // Stripe's minimum. Unpaid sessions close quickly so two buyers can't both hold the last unit for a day.
+    expires_at: Math.floor(Date.now() / 1000) + 30 * 60,
     success_url: `${a.origin}/thank-you?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url: `${a.origin}/#shop`,
     metadata: { size: a.size },

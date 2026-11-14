@@ -184,3 +184,18 @@ html { scroll-behavior:smooth; }
   .site-footer { padding:40px 24px 80px; }
   .modal { padding:40px 28px 32px; }
 }
+
+/* ── POLICY / THANK-YOU PAGES ── */
+.policy-nav { display:flex; align-items:center; justify-content:space-between; padding:0 48px; height:60px; border-bottom:1px solid var(--border); }
+.policy-nav .nav-logo { color:var(--text); text-decoration:none; }
+.policy { max-width:680px; margin:0 auto; padding:80px 24px 100px; min-height:60vh; }
+.policy h1 { font-size:clamp(2rem,4vw,3rem); font-weight:900; text-transform:uppercase; letter-spacing:-0.03em; line-height:0.95; margin-bottom:16px; }
+.policy-updated { font-size:0.65rem; color:var(--muted); letter-spacing:0.08em; margin-bottom:40px; }
+.policy-lead { font-size:1rem; color:var(--text); line-height:1.7; margin:24px 0 8px; }
+.policy-body h2 { font-size:0.7rem; font-weight:800; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin:36px 0 12px; }
+.policy-body p, .policy-body li { font-size:0.88rem; color:rgba(237,234,224,0.72); line-height:1.8; }
+.policy-body p + p { margin-top:14px; }
+.policy-body ul { padding-left:18px; display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+.policy-body a { color:var(--accent); }
+.policy-body strong { color:var(--text); }
+@media (max-width: 768px) { .policy-nav { padding:0 24px; } .policy { padding:56px 24px 80px; } }

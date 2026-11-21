@@ -40,7 +40,7 @@ export default function Home() {
           fill
           sizes="100vw"
           quality={90}
-          style={{ objectFit: "cover", objectPosition: "center top" }}
+          style={{ objectFit: "cover" }}
           priority
         />
         <div className="hero-overlay-bottom" />

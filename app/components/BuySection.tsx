@@ -187,6 +187,13 @@ export default function BuySection() {
             {error}
           </p>
         )}
+        <div className="buy-pay" aria-label="Payment options at checkout">
+          <span className="buy-pay-label">Pay with</span>
+          <span className="pay-badge">Apple Pay</span>
+          <span className="pay-badge">Google Pay</span>
+          <span className="pay-badge">Link</span>
+          <span className="pay-badge">Card</span>
+        </div>
         <p className="buy-tax">+ tax where applicable</p>
         <div className="buy-trust">
           <span>Free US shipping</span>

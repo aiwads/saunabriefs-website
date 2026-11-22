@@ -126,6 +126,9 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:0
 .product-btn:disabled { background:rgba(91,143,168,0.35); cursor:not-allowed; transform:none; }
 .buy-error { margin-top:12px; font-size:0.78rem; color:#D9A38F; }
 .buy-tax { margin-top:12px; font-size:0.65rem; color:var(--muted); }
+.buy-pay { display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-top:12px; }
+.buy-pay-label { font-size:0.6rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted); margin-right:4px; }
+.pay-badge { font-size:0.64rem; font-weight:600; color:rgba(237,234,224,0.8); border:1px solid var(--border); background:var(--surface); padding:4px 8px; border-radius:4px; white-space:nowrap; }
 .buy-trust { display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:14px; font-size:0.68rem; color:var(--muted); }
 .buy-trust > * { color:var(--muted); text-decoration:none; }
 .buy-trust > *::before { content:"✓ "; color:var(--accent); }

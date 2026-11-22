@@ -9,8 +9,8 @@ import StickyBuyBar from "./components/StickyBuyBar";
 import { PRICE_CENTS, formatPrice } from "@/lib/catalog";
 
 const TICKER_ITEMS = [
-  { stat: "80°C", text: "average sauna temp" },
-  { stat: "+37°C", text: "threshold for sperm damage" },
+  { stat: "176°F", text: "average sauna temp" },
+  { stat: "98.6°F", text: "threshold for sperm damage" },
   { stat: "−12%", text: "testosterone from chronic heat" },
   { stat: null, text: "your sessions. ", bold: "your biology. protected." },
 ];
@@ -86,9 +86,9 @@ export default function Home() {
         </h2>
         <div>
           <div className="below-stat">
-            <div className="below-stat-num">+37°C</div>
+            <div className="below-stat-num">98.6°F</div>
             <div className="below-stat-text">
-              The temperature at which sperm production begins to drop. Your sauna runs at 80°C. Do the math.
+              The temperature at which sperm production begins to drop. Your sauna runs at 176°F. Do the math.
             </div>
           </div>
           <div className="below-stat">

@@ -104,6 +104,11 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:0
 .buy-box-label { margin-bottom:12px; }
 .buy-box ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
 .buy-box li { font-size:0.82rem; color:rgba(237,234,224,0.8); display:flex; align-items:center; gap:12px; }
+.buy-box-note { margin-top:12px; font-size:0.72rem; color:var(--muted); }
+.img-placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; text-align:center; padding:12px; border:1px dashed rgba(237,234,224,0.18); background:repeating-linear-gradient(135deg, rgba(255,255,255,0.02) 0 12px, transparent 12px 24px); }
+.img-placeholder span { font-size:0.7rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:rgba(237,234,224,0.55); }
+.img-placeholder small { font-size:0.65rem; color:var(--muted); }
+.img-placeholder.is-thumb span { font-size:0.5rem; letter-spacing:0.08em; }
 .buy-box li::before { content:""; width:5px; height:5px; background:var(--accent); flex-shrink:0; }
 .buy-row-label { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:12px; }
 .buy-link { background:none; border:none; padding:0; color:var(--accent); font:inherit; font-size:0.7rem; letter-spacing:0.02em; text-transform:none; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }

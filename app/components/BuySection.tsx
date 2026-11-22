@@ -6,10 +6,14 @@ import Link from "next/link";
 import { SIZES, PRICE_CENTS, MAX_QTY, BOX_CONTENTS, formatPrice, type Size } from "@/lib/catalog";
 import SizeChart from "./SizeChart";
 
-const IMAGES = [
+// src: null = placeholder until the real photo is added to /public
+const IMAGES: { src: string | null; alt: string }[] = [
   { src: "/product-main.jpg", alt: "Sauna Briefs in black" },
   { src: "/product-alt.jpg", alt: "Sauna Briefs with ice pack pouch" },
   { src: "/product-gel.jpg", alt: "Slim gel ice pack" },
+  { src: null, alt: "Pouch open" },
+  { src: null, alt: "Ice pack being inserted" },
+  { src: null, alt: "On-body side view" },
 ];
 
 type Stock = Record<Size, number> | null; // null = unknown; the server is the real gate
@@ -82,25 +86,36 @@ export default function BuySection() {
     <section className="product" id="shop">
       <div className="buy-gallery">
         <div className="product-visual">
-          <Image
-            src={IMAGES[image].src}
-            alt={IMAGES[image].alt}
-            fill
-            quality={90}
-            sizes="(max-width: 768px) 100vw, 50vw"
-            style={{ objectFit: "cover" }}
-          />
+          {IMAGES[image].src ? (
+            <Image
+              src={IMAGES[image].src}
+              alt={IMAGES[image].alt}
+              fill
+              quality={90}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+            />
+          ) : (
+            <div className="img-placeholder" role="img" aria-label={`${IMAGES[image].alt} (photo coming soon)`}>
+              <span>{IMAGES[image].alt}</span>
+              <small>Photo coming soon</small>
+            </div>
+          )}
           <div className="product-tag">The Original</div>
         </div>
         <div className="buy-thumbs">
           {IMAGES.map((img, i) => (
             <button
-              key={img.src}
+              key={img.alt}
               className={`buy-thumb${i === image ? " is-active" : ""}`}
               onClick={() => setImage(i)}
               aria-label={`Show image ${i + 1}: ${img.alt}`}
             >
-              <Image src={img.src} alt="" fill sizes="120px" style={{ objectFit: "cover" }} />
+              {img.src ? (
+                <Image src={img.src} alt="" fill sizes="120px" style={{ objectFit: "cover" }} />
+              ) : (
+                <div className="img-placeholder is-thumb"><span>{img.alt}</span></div>
+              )}
             </button>
           ))}
         </div>
@@ -123,6 +138,7 @@ export default function BuySection() {
               <li key={item}>{item}</li>
             ))}
           </ul>
+          <p className="buy-box-note">Ice packs are reusable.</p>
         </div>
 
         <div className="buy-row-label">

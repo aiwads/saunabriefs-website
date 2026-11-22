@@ -82,7 +82,7 @@ export default function Home() {
       <div className="below" id="science">
         <h2>
           The Sauna<br />Is Good.<br />
-          <em>The Heat<br />Isn&apos;t.</em>
+          <em>The Heat<br />Down There<br />Isn&apos;t.</em>
         </h2>
         <div>
           <div className="below-stat">

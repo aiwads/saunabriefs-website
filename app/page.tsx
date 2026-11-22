@@ -86,9 +86,15 @@ export default function Home() {
         </h2>
         <div>
           <div className="below-stat">
+            <div className="below-stat-num">+1.8°F</div>
+            <div className="below-stat-text">
+              All it takes. Rising just 1.8°F (1°C) above normal scrotal temperature can hurt sperm quality over time.
+            </div>
+          </div>
+          <div className="below-stat">
             <div className="below-stat-num">98.6°F</div>
             <div className="below-stat-text">
-              The temperature at which sperm production begins to drop. Your sauna runs at 180°F. Do the math.
+              Where the damage turns severe: 98.6–100.4°F (37–38°C). Your sauna runs at 180°F. Do the math.
             </div>
           </div>
           <div className="below-stat">

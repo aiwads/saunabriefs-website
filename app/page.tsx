@@ -38,7 +38,7 @@ export default function Home() {
           src="/hero.jpg"
           alt="Man in a sauna wearing Sauna Briefs"
           fill
-          sizes="100vw"
+          sizes="(max-width: 768px) 178vh, 100vw"
           quality={90}
           style={{ objectFit: "cover" }}
           priority

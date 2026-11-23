@@ -1,8 +1,10 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
-export default function Footer() {
+export default function Footer({ children }: { children?: ReactNode }) {
   return (
     <footer className="site-footer">
+      {children}
       <div className="footer-inner">
         <Link href="/" className="nav-logo">Sauna Briefs</Link>
         <div className="footer-links" role="navigation" aria-label="Policies">

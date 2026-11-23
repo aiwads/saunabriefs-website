@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://saunabriefs.com"),
-  title: "Sauna Briefs — All The Heat. None Of The Damage.",
+  title: "Sauna Briefs — Feel The Burn. Just Not Down There.",
   description:
     "Sauna briefs with a built-in ice pack pouch. Protect your fertility and testosterone in the heat. $45, free US shipping.",
   openGraph: {
-    title: "Sauna Briefs — All The Heat. None Of The Damage.",
+    title: "Sauna Briefs — Feel The Burn. Just Not Down There.",
     description: "Sauna briefs with a built-in ice pack pouch. $45, free US shipping.",
     images: [{ url: "/hero.jpg", width: 2560, height: 1440 }],
   },

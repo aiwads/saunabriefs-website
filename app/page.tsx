@@ -10,16 +10,17 @@ import { PRICE_CENTS, formatPrice } from "@/lib/catalog";
 
 const TICKER_ITEMS = [
   { stat: "180°F", text: "average sauna temp" },
-  { stat: "98.6°F", text: "threshold for sperm damage" },
-  { stat: "−12%", text: "testosterone from chronic heat" },
-  { stat: null, text: "your sessions. ", bold: "your biology. protected." },
+  { stat: null, text: "Your sessions. Your rules. ", bold: "Stay cool." },
 ];
 
 const PRICE = formatPrice(PRICE_CENTS);
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
-  const tickerItems = [...TICKER_ITEMS, ...TICKER_ITEMS];
+  // The marquee scrolls by 50%, so it needs two identical halves; each half repeats the short item list
+  // three times so the bar stays full on wide screens.
+  const tickerHalf = [...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS];
+  const tickerItems = [...tickerHalf, ...tickerHalf];
 
   return (
     <>
@@ -49,14 +50,14 @@ export default function Home() {
         <div className="hero-content">
           <div className="hero-left">
             <h1>
-              <span className="h1-line1">All The Heat.</span>
-              <em>None Of The Damage.</em>
+              <span className="h1-line1">Feel The Burn.</span>
+              <em>Just Not Down There.</em>
             </h1>
           </div>
           <div className="hero-right">
             <p className="hero-desc">
-              The Original Sauna Briefs™ — with a built-in ice pack pouch. Sauna as long as you want, without cooking
-              your testosterone or fertility.
+              Your body loves the heat. Your boys don&apos;t. The Original Sauna Briefs™ keep an ice pack right where it
+              counts.
             </p>
             <a href="#shop" className="hero-cta">Shop now</a>
             <p className="hero-fine">
@@ -86,27 +87,25 @@ export default function Home() {
         </h2>
         <div>
           <div className="below-stat">
+            <div className="below-stat-num">4–7°F</div>
+            <div className="below-stat-text">
+              Testicles are built to run a few degrees cooler than the rest of your body. That&apos;s why they hang
+              outside it.
+            </div>
+          </div>
+          <div className="below-stat">
             <div className="below-stat-num">+1.8°F</div>
             <div className="below-stat-text">
-              All it takes. Rising just 1.8°F (1°C) above normal scrotal temperature can hurt sperm quality over time.
+              That&apos;s how much a hot sauna session can raise scrotal temperature, and studies have linked rises this
+              small to lower sperm counts over time.<sup><a href="#sources">1</a></sup> <sup><a href="#sources">2</a></sup>
             </div>
           </div>
+          {/* TODO: once the owner provides X, consider "[X]°F cooler — Inside the Sauna Briefs pouch after 15
+              minutes in a 176°F sauna. (Our test.)" */}
           <div className="below-stat">
-            <div className="below-stat-num">98.6°F</div>
+            <div className="below-stat-num">0 compromises</div>
             <div className="below-stat-text">
-              Where the damage turns severe: 98.6–100.4°F (37–38°C). Your sauna runs at 180°F. Do the math.
-            </div>
-          </div>
-          <div className="below-stat">
-            <div className="below-stat-num">−12%</div>
-            <div className="below-stat-text">
-              Reduction in testosterone linked to chronic scrotal heat exposure. Every session adds up.
-            </div>
-          </div>
-          <div className="below-stat">
-            <div className="below-stat-num">72h</div>
-            <div className="below-stat-text">
-              How long sperm suppression can last after a single sauna session. You didn&apos;t know that. Now you do.
+              The full sauna session, with a built-in way to keep things cooler.
             </div>
           </div>
         </div>
@@ -114,7 +113,27 @@ export default function Home() {
 
       <BuySection />
       <Faq />
-      <Footer />
+      <Footer>
+        <div className="footer-notes" id="sources">
+          <p className="footer-notes-title">Sources</p>
+          <ol>
+            <li>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5237323/" target="_blank" rel="noopener noreferrer">
+                pmc.ncbi.nlm.nih.gov/articles/PMC5237323
+              </a>
+            </li>
+            <li>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/11277880/" target="_blank" rel="noopener noreferrer">
+                pubmed.ncbi.nlm.nih.gov/11277880
+              </a>
+            </li>
+          </ol>
+          <p className="footer-disclaimer">
+            For general information only, not medical advice. Sauna Briefs is not a medical device and is not intended
+            to diagnose, treat, or prevent any condition. Talk to your doctor about fertility concerns.
+          </p>
+        </div>
+      </Footer>
       <StickyBuyBar heroRef={heroRef} />
     </>
   );

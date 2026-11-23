@@ -41,8 +41,6 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:0
 .h1-line1 { display:block; font-size:1.42em; }
 .hero-right { flex-shrink:0; max-width:340px; width:100%; }
 .hero-desc { font-size:0.85rem; color:rgba(237,234,224,0.6); line-height:1.75; margin-bottom:24px; }
-.hero-fine { font-size:0.62rem; color:var(--muted); }
-.hero-fine strong { color:var(--accent); font-weight:600; }
 
 /* TICKER */
 .ticker { border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:13px 0; overflow:hidden; white-space:nowrap; background:var(--surface); }

@@ -6,14 +6,11 @@ import BuySection from "./components/BuySection";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import StickyBuyBar from "./components/StickyBuyBar";
-import { PRICE_CENTS, formatPrice } from "@/lib/catalog";
 
 const TICKER_ITEMS = [
   { stat: "180°F", text: "average sauna temp" },
   { stat: null, text: "Your sessions. Your rules. ", bold: "Stay cool." },
 ];
-
-const PRICE = formatPrice(PRICE_CENTS);
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -60,9 +57,6 @@ export default function Home() {
               counts.
             </p>
             <a href="#shop" className="hero-cta">Shop now</a>
-            <p className="hero-fine">
-              <strong>{PRICE}</strong> · Free US shipping
-            </p>
           </div>
         </div>
       </div>

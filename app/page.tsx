@@ -29,7 +29,7 @@ export default function Home() {
         <div className="nav-right">
           <a href="#science" className="nav-link">Science</a>
           <a href="#faq" className="nav-link">How It Works</a>
-          <a href="#shop" className="nav-btn">Shop — {PRICE}</a>
+          <a href="#shop" className="nav-btn">Shop</a>
         </div>
       </nav>
 
@@ -102,13 +102,12 @@ export default function Home() {
               lower sperm counts over time.<sup><a href="#sources">3</a></sup>
             </div>
           </div>
-          {/* TODO: once the owner provides X, consider "[X]°F cooler — Inside the Sauna Briefs pouch after 15
-              minutes in a 176°F sauna. (Our test.)" */}
           <div className="below-stat">
-            <div className="below-stat-label">With Sauna Briefs</div>
-            <div className="below-stat-num">0 compromises</div>
+            <div className="below-stat-label">Every degree counts</div>
+            <div className="below-stat-num">~1.8°F</div>
             <div className="below-stat-text">
-              The full sauna session, with a built-in way to keep things cooler.
+              In one study, cooling the scrotum by just ~1.8°F each night, along with a few habit changes, significantly
+              raised sperm counts within 12 weeks.<sup><a href="#sources">4</a></sup>
             </div>
           </div>
         </div>
@@ -133,6 +132,11 @@ export default function Home() {
             <li>
               <a href="https://pubmed.ncbi.nlm.nih.gov/23411620/" target="_blank" rel="noopener noreferrer">
                 Garolla et al., Human Reproduction (2013)
+              </a>
+            </li>
+            <li>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/11277880/" target="_blank" rel="noopener noreferrer">
+                Jung et al., Reproduction (2001)
               </a>
             </li>
           </ol>

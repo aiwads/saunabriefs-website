@@ -75,13 +75,13 @@ describe("BuySection", () => {
     expect(screen.getByTestId("qty")).toHaveTextContent("2");
   });
 
-  it("updates the button price with quantity", async () => {
+  it("keeps the button label price-free when quantity changes", async () => {
     mockFetch({ S: 5, M: 5, L: 5, XL: 5 });
     const user = userEvent.setup();
     render(<BuySection />);
     await user.click(await screen.findByRole("button", { name: "M" }));
     await user.click(screen.getByRole("button", { name: "Increase quantity" }));
-    expect(buyBtn()).toHaveTextContent("Buy Now — $90");
+    expect(buyBtn()).toHaveTextContent(/^Buy Now$/);
   });
 
   it("asks for a size before checkout", async () => {
@@ -136,7 +136,7 @@ describe("BuySection", () => {
     expect(buyBtn()).toBeDisabled();
     window.dispatchEvent(Object.assign(new Event("pageshow"), { persisted: true }));
     await waitFor(() => expect(buyBtn()).toBeEnabled());
-    expect(buyBtn()).toHaveTextContent("Buy Now — $45");
+    expect(buyBtn()).toHaveTextContent(/^Buy Now$/);
   });
 
   it("anchors at #shop", () => {

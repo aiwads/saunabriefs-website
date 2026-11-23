@@ -179,7 +179,7 @@ export default function BuySection() {
             </button>
           </div>
           <button className="product-btn" onClick={buy} disabled={pending || allSoldOut}>
-            {allSoldOut ? "Sold out" : pending ? "Opening checkout…" : `Buy Now — ${formatPrice(PRICE_CENTS * qty)}`}
+            {allSoldOut ? "Sold out" : pending ? "Opening checkout…" : "Buy Now"}
           </button>
         </div>
         {error && (

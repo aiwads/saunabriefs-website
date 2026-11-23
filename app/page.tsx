@@ -87,22 +87,25 @@ export default function Home() {
         </h2>
         <div>
           <div className="below-stat">
-            <div className="below-stat-num">4–7°F</div>
+            <div className="below-stat-label">Built to run cool</div>
+            <div className="below-stat-num">Under 95°F</div>
             <div className="below-stat-text">
-              Testicles are built to run a few degrees cooler than the rest of your body. That&apos;s why they hang
-              outside it.
+              Where your boys need to stay to make healthy sperm, a few degrees cooler than the rest of your body.
+              That&apos;s why they hang outside it.<sup><a href="#sources">1</a></sup>
             </div>
           </div>
           <div className="below-stat">
-            <div className="below-stat-num">+1.8°F</div>
+            <div className="below-stat-label">Then you hit the sauna</div>
+            <div className="below-stat-num">104°F</div>
             <div className="below-stat-text">
-              That&apos;s how much a hot sauna session can raise scrotal temperature, and studies have linked rises this
-              small to lower sperm counts over time.<sup><a href="#sources">1</a></sup> <sup><a href="#sources">2</a></sup>
+              How hot your skin gets in a typical sauna.<sup><a href="#sources">2</a></sup> Studies have linked regular scrotal heating to
+              lower sperm counts over time.<sup><a href="#sources">3</a></sup>
             </div>
           </div>
           {/* TODO: once the owner provides X, consider "[X]°F cooler — Inside the Sauna Briefs pouch after 15
               minutes in a 176°F sauna. (Our test.)" */}
           <div className="below-stat">
+            <div className="below-stat-label">With Sauna Briefs</div>
             <div className="below-stat-num">0 compromises</div>
             <div className="below-stat-text">
               The full sauna session, with a built-in way to keep things cooler.
@@ -118,13 +121,18 @@ export default function Home() {
           <p className="footer-notes-title">Sources</p>
           <ol>
             <li>
-              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5237323/" target="_blank" rel="noopener noreferrer">
-                pmc.ncbi.nlm.nih.gov/articles/PMC5237323
+              <a href="https://pubmed.ncbi.nlm.nih.gov/16893399/" target="_blank" rel="noopener noreferrer">
+                Song &amp; Seo, Int J Androl (2006)
               </a>
             </li>
             <li>
-              <a href="https://pubmed.ncbi.nlm.nih.gov/11277880/" target="_blank" rel="noopener noreferrer">
-                pubmed.ncbi.nlm.nih.gov/11277880
+              <a href="https://pubmed.ncbi.nlm.nih.gov/11165553/" target="_blank" rel="noopener noreferrer">
+                Hannuksela &amp; Ellahham, Am J Med (2001)
+              </a>
+            </li>
+            <li>
+              <a href="https://pubmed.ncbi.nlm.nih.gov/23411620/" target="_blank" rel="noopener noreferrer">
+                Garolla et al., Human Reproduction (2013)
               </a>
             </li>
           </ol>

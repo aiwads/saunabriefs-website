@@ -22,7 +22,18 @@ export default function Home() {
   return (
     <>
       <nav>
-        <div className="nav-logo">Sauna Briefs</div>
+        <a
+          href="/"
+          className="nav-logo"
+          aria-label="Sauna Briefs home"
+          onClick={(e) => {
+            e.preventDefault();
+            window.history.replaceState(null, "", "/");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
+          Sauna Briefs
+        </a>
         <div className="nav-right">
           <a href="#science" className="nav-link">Science</a>
           <a href="#faq" className="nav-link">FAQ</a>

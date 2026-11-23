@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
+import PolicyPage from "@/app/components/PolicyPage";
 import Home from "@/app/page";
 
 vi.mock("next/image", () => ({
@@ -30,6 +31,22 @@ describe("Home", () => {
     expect(container.querySelector("#shop")).not.toBeNull();
     expect(container.querySelector("#faq")).not.toBeNull();
     expect(container.querySelector("#science")).not.toBeNull();
+  });
+
+  it("logo links home and smooth-scrolls to the top on the homepage", () => {
+    const scrollTo = vi.fn();
+    vi.stubGlobal("scrollTo", scrollTo);
+    const { getAllByRole } = renderHome();
+    const logo = getAllByRole("link", { name: "Sauna Briefs home" })[0];
+    expect(logo).toHaveAttribute("href", "/");
+    const notCancelled = fireEvent.click(logo);
+    expect(notCancelled).toBe(false);
+    expect(scrollTo).toHaveBeenCalledWith({ top: 0, behavior: "smooth" });
+  });
+
+  it("policy page logo links home", () => {
+    const { getAllByRole } = render(<PolicyPage title="Returns">x</PolicyPage>);
+    expect(getAllByRole("link", { name: "Sauna Briefs home" })[0]).toHaveAttribute("href", "/");
   });
 
   it("has a footer with the policy links and contact email", () => {

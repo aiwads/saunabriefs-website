@@ -13,7 +13,7 @@ export default function PolicyPage({
   return (
     <>
       <div className="policy-nav">
-        <Link href="/" className="nav-logo">Sauna Briefs</Link>
+        <Link href="/" className="nav-logo" aria-label="Sauna Briefs home">Sauna Briefs</Link>
         <Link href="/#shop" className="nav-btn">Shop</Link>
       </div>
       <main className="policy">

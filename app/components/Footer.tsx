@@ -6,7 +6,7 @@ export default function Footer({ children }: { children?: ReactNode }) {
     <footer className="site-footer">
       {children}
       <div className="footer-inner">
-        <Link href="/" className="nav-logo">Sauna Briefs</Link>
+        <Link href="/" className="nav-logo" aria-label="Sauna Briefs home">Sauna Briefs</Link>
         <div className="footer-links" role="navigation" aria-label="Policies">
           <Link href="/returns">Returns &amp; Exchanges</Link>
           <Link href="/shipping">Shipping</Link>

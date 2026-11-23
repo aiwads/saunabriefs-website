@@ -25,7 +25,7 @@ export default function Home() {
         <div className="nav-logo">Sauna Briefs</div>
         <div className="nav-right">
           <a href="#science" className="nav-link">Science</a>
-          <a href="#faq" className="nav-link">How It Works</a>
+          <a href="#faq" className="nav-link">FAQ</a>
           <a href="#shop" className="nav-btn">Shop</a>
         </div>
       </nav>

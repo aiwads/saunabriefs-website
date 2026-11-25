@@ -20,11 +20,11 @@ export default function SizeChart({ open, onClose }: { open: boolean; onClose: (
         <h2 className="modal-headline">Find Your<em>Fit.</em></h2>
         <table className="size-table">
           <thead>
-            <tr><th>Size</th><th>Waist (in)</th><th>Hip (in)</th></tr>
+            <tr><th>Size</th><th>Waist (in)</th></tr>
           </thead>
           <tbody>
             {SIZE_CHART.map((row) => (
-              <tr key={row.size}><td>{row.size}</td><td>{row.waistIn}</td><td>{row.hipIn}</td></tr>
+              <tr key={row.size}><td>{row.size}</td><td>{row.waistIn}</td></tr>
             ))}
           </tbody>
         </table>

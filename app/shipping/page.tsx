@@ -9,7 +9,6 @@ export default function Shipping() {
       <h2>Free US shipping</h2>
       <p>Every order ships free within the United States. We don&apos;t ship internationally yet.</p>
       <h2>How fast</h2>
-      {/* OWNER: confirm processing time */}
       <p>
         Orders ship within 2 business days via USPS. You&apos;ll get a tracking number by email as soon as your kit is
         on its way.

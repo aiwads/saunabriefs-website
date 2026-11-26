@@ -197,7 +197,7 @@ export default function BuySection() {
         <p className="buy-tax">+ tax where applicable</p>
         <div className="buy-trust">
           <span>Free US shipping</span>
-          <Link href="/returns">Free size exchanges, 30 days</Link>
+          <Link href="/returns">30-day size exchanges</Link>
           <span>Secure checkout by Stripe</span>
         </div>
       </div>

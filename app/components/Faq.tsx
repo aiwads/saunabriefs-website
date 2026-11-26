@@ -5,8 +5,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "What size should I get?",
     a: (
       <>
-        Go by your normal underwear size and check the size chart in the shop section. Wrong call? Size exchanges are
-        free within 30 days on unworn briefs.
+        Go by your normal underwear size and check the size chart in the shop section. Wrong call? Exchange unworn
+        briefs for another size within 30 days.
       </>
     ),
   },
@@ -20,11 +20,10 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     ),
   },
   {
-    // OWNER: confirm how long the pack stays cold in a real session
     q: "How long does the ice pack stay cold?",
     a: (
       <>
-        Long enough for most of a typical session. On long or very hot sessions, swap in the spare from the cooler.
+        20+ minutes in a 180°F sauna. Staying longer or going back for round two? Swap in the spare from the cooler.
       </>
     ),
   },
@@ -45,7 +44,8 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     q: "What's your return policy?",
     a: (
       <>
-        Free size exchanges within 30 days on unworn briefs with tags. Worn briefs can&apos;t be returned — hygiene.
+        Size exchanges within 30 days on unworn briefs with tags: you cover return shipping, we ship the new size
+        free. Unopened kits can be returned within 30 days for a refund. Worn briefs can&apos;t be returned — hygiene.
         Anything arrives damaged, we replace it free. <Link href="/returns">Full policy →</Link>
       </>
     ),

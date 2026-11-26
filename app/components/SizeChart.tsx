@@ -31,7 +31,7 @@ export default function SizeChart({ open, onClose }: { open: boolean; onClose: (
         {SIZE_CHART_IS_PLACEHOLDER ? (
           <p className="modal-fine">Measurements coming soon — email hello@saunabriefs.com for sizing help.</p>
         ) : (
-          <p className="modal-fine">Between sizes? Size up. Free size exchanges within 30 days.</p>
+          <p className="modal-fine">Between sizes? Size up. Size exchanges within 30 days.</p>
         )}
       </div>
     </div>

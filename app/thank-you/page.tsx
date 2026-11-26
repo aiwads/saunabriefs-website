@@ -30,7 +30,7 @@ export default async function ThankYou({ searchParams }: { searchParams: Promise
       <ul>
         <li>Your order ships within 2 business days via USPS. Tracking comes by email.</li>
         <li>When it lands, put both ice packs in the freezer before your first session.</li>
-        <li>Wrong size? Free exchanges within 30 days on unworn briefs. <Link href="/returns">See how</Link>.</li>
+        <li>Wrong size? Exchange unworn briefs within 30 days. <Link href="/returns">See how</Link>.</li>
       </ul>
       <p>
         Questions about your order? Email <a href="mailto:hello@saunabriefs.com">hello@saunabriefs.com</a>.

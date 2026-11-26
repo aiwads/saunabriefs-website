@@ -29,9 +29,13 @@ const FAQS: { q: string; a: React.ReactNode }[] = [
     ),
   },
   {
-    // OWNER: confirm care instructions
     q: "How do I wash them?",
-    a: <>Take the ice pack out, machine wash cold, hang dry. Skip the dryer to keep the fit and the pouch in shape.</>,
+    a: (
+      <>
+        Take the ice pack out first. Machine wash on a gentle cycle with similar colors, and tumble dry low. No bleach,
+        and don&apos;t iron over the print. 95% cotton, 5% elastane.
+      </>
+    ),
   },
   {
     q: "Where do you ship, and how fast?",

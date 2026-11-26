@@ -5,7 +5,7 @@ export const metadata: Metadata = { title: "Returns & Exchanges — Sauna Briefs
 
 export default function Returns() {
   return (
-    <PolicyPage title="Returns & Exchanges" updated="November 13, 2026">
+    <PolicyPage title="Returns & Exchanges" updated="November 26, 2026">
       <h2>Free size exchanges — 30 days</h2>
       <p>
         Wrong size? Exchange unworn briefs with tags still attached within 30 days of delivery. Email{" "}
@@ -17,7 +17,6 @@ export default function Returns() {
       <h2>Damaged or defective</h2>
       <p>
         If anything in your kit arrives damaged or defective, email us a photo and we&apos;ll send a free replacement.
-        No need to send the original back.
       </p>
       <h2>Unopened kits</h2>
       <p>

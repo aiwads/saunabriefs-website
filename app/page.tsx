@@ -6,7 +6,6 @@ import BuySection from "./components/BuySection";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import StickyBuyBar from "./components/StickyBuyBar";
-import PullToRefresh from "./components/PullToRefresh";
 
 const TICKER_ITEMS = [
   { stat: "180°F", text: "average sauna temp" },
@@ -56,7 +55,6 @@ export default function Home() {
         <div className="hero-overlay-bottom" />
         <div className="hero-overlay-left" />
         <div className="hero-glow" />
-        <PullToRefresh heroRef={heroRef} />
         <div className="hero-content">
           <div className="hero-left">
             <h1>

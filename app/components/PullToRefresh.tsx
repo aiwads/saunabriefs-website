@@ -3,13 +3,13 @@
 import { useEffect, useRef, type RefObject } from "react";
 
 /** How far (px) the hero stretches at most, and how far you must pull before letting go reloads. */
-export const MAX_PULL = 140;
-export const REFRESH_AT = 80;
+export const MAX_PULL = 200;
+export const REFRESH_AT = 100;
 
-/** Finger travel → hero stretch: half speed for a rubbery feel, capped at MAX_PULL. */
+/** Finger travel → hero stretch: 80% of finger speed for a light, rubbery feel, capped at MAX_PULL. */
 export function pullDistance(fingerDy: number): number {
   if (fingerDy <= 0) return 0;
-  return Math.min(fingerDy * 0.5, MAX_PULL);
+  return Math.min(fingerDy * 0.8, MAX_PULL);
 }
 
 // Same breakpoints as the stacked (photo on top) hero layout in globals.css.

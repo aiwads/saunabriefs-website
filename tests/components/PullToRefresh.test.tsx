@@ -8,8 +8,8 @@ describe("pullDistance", () => {
     expect(pullDistance(0)).toBe(0);
     expect(pullDistance(-50)).toBe(0);
   });
-  it("moves at half finger speed", () => {
-    expect(pullDistance(100)).toBe(50);
+  it("moves at 80% of finger speed", () => {
+    expect(pullDistance(100)).toBe(80);
   });
   it("caps at MAX_PULL", () => {
     expect(pullDistance(10_000)).toBe(MAX_PULL);
@@ -49,19 +49,19 @@ describe("PullToRefresh", () => {
   it("stretches the hero while pulling down at the top", () => {
     const hero = setup();
     pull(100);
-    expect(hero.style.getPropertyValue("--pull")).toBe("50px");
+    expect(hero.style.getPropertyValue("--pull")).toBe("80px");
   });
 
   it("reloads when released past the threshold", () => {
     setup();
-    pull(REFRESH_AT * 2 + 10);
+    pull(REFRESH_AT * 1.25 + 10);
     fireEvent.touchEnd(window);
     expect(reload).toHaveBeenCalledTimes(1);
   });
 
   it("snaps back without reloading on a short pull", () => {
     const hero = setup();
-    pull(REFRESH_AT); // stretch = REFRESH_AT / 2, below the threshold
+    pull(REFRESH_AT); // stretch = 0.8 × REFRESH_AT, below the threshold
     fireEvent.touchEnd(window);
     expect(reload).not.toHaveBeenCalled();
     expect(hero.style.getPropertyValue("--pull")).toBe("0px");

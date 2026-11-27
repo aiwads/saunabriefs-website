@@ -57,3 +57,28 @@ describe("Home", () => {
     }
   });
 });
+
+describe("Home header menu", () => {
+  it("opens and closes the mobile menu", async () => {
+    const user = (await import("@testing-library/user-event")).default.setup();
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ stock: null })));
+    const { getByRole } = render(<Home />);
+    const btn = getByRole("button", { name: "Open menu" });
+    expect(btn).toHaveAttribute("aria-expanded", "false");
+    await user.click(btn);
+    expect(getByRole("button", { name: "Close menu" })).toHaveAttribute("aria-expanded", "true");
+    await user.click(getByRole("navigation", { name: "Main" }).querySelector('a[href="#faq"]')!);
+    expect(getByRole("button", { name: "Open menu" })).toHaveAttribute("aria-expanded", "false");
+  });
+});
+
+describe("Home header and hero perks", () => {
+  it("shows the tagline, a Shop link in the header, and the three hero perks", () => {
+    vi.stubGlobal("fetch", vi.fn(async () => Response.json({ stock: null })));
+    const { getByText, container } = render(<Home />);
+    expect(getByText("Cooling sauna underwear")).toBeInTheDocument();
+    expect(container.querySelector(".site-header a.header-shop")).toHaveAttribute("href", "#shop");
+    const perks = [...container.querySelectorAll(".hero-perks li")].map((li) => li.textContent);
+    expect(perks).toEqual(["Ice pack pouch", "Cooler included", "Free US shipping"]);
+  });
+});

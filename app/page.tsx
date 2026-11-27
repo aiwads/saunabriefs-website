@@ -1,19 +1,45 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import BuySection from "./components/BuySection";
 import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import StickyBuyBar from "./components/StickyBuyBar";
+import AnnouncementBar from "./components/AnnouncementBar";
 
 const TICKER_ITEMS = [
   { stat: "180°F", text: "average sauna temp" },
   { stat: null, text: "Your sessions. Your rules. ", bold: "Stay cool." },
 ];
 
+// Icon row under the hero "Shop now" button.
+const HERO_PERKS = [
+  { label: "Ice pack pouch", icon: <path d="M12 2v20M4 6l16 12M20 6L4 18" /> },
+  {
+    label: "Cooler included",
+    icon: (
+      <>
+        <rect x="3" y="7" width="18" height="12" rx="2" />
+        <path d="M8 7V5h8v2" />
+      </>
+    ),
+  },
+  {
+    label: "Free US shipping",
+    icon: (
+      <>
+        <path d="M3 7h11v9H3zM14 10h4l3 3v3h-7" />
+        <circle cx="7" cy="17" r="1.6" />
+        <circle cx="17" cy="17" r="1.6" />
+      </>
+    ),
+  },
+];
+
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
   // The marquee scrolls by 50%, so it needs two identical halves; each half repeats the short item list
   // three times so the bar stays full on wide screens.
   const tickerHalf = [...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS];
@@ -21,25 +47,53 @@ export default function Home() {
 
   return (
     <>
-      <nav>
+      <AnnouncementBar />
+      <header className="site-header">
+        <div className="header-left">
+          <button
+            type="button"
+            className="menu-btn"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+          <a href="#science" className="nav-link">Science</a>
+          <a href="#faq" className="nav-link">FAQ</a>
+        </div>
         <a
           href="/"
-          className="nav-logo"
+          className="header-logo"
           aria-label="Sauna Briefs home"
           onClick={(e) => {
             e.preventDefault();
+            setMenuOpen(false);
             window.history.replaceState(null, "", "/");
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          Sauna Briefs
+          <span className="header-logo-name">Sauna Briefs</span>
+          <span className="header-tagline">Cooling sauna underwear</span>
         </a>
-        <div className="nav-right">
-          <a href="#science" className="nav-link">Science</a>
-          <a href="#faq" className="nav-link">FAQ</a>
-          <a href="#shop" className="nav-btn">Shop</a>
+        <div className="header-right">
+          <a href="#shop" className="header-shop">Shop</a>
         </div>
-      </nav>
+        <nav id="site-menu" className={menuOpen ? "site-menu is-open" : "site-menu"} aria-label="Main">
+          {[
+            ["#shop", "Shop"],
+            ["#science", "Science"],
+            ["#faq", "FAQ"],
+          ].map(([href, label]) => (
+            <a key={href} href={href} onClick={() => setMenuOpen(false)}>
+              {label}
+            </a>
+          ))}
+        </nav>
+      </header>
 
       <div className="hero" ref={heroRef} style={{ position: "relative" }}>
         <Image
@@ -68,6 +122,18 @@ export default function Home() {
               counts.
             </p>
             <a href="#shop" className="hero-cta">Shop now</a>
+            <ul className="hero-perks">
+              {HERO_PERKS.map((perk) => (
+                <li key={perk.label}>
+                  <span className="hero-perk-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+                      {perk.icon}
+                    </svg>
+                  </span>
+                  {perk.label}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

@@ -222,7 +222,7 @@ html { scroll-behavior:smooth; overscroll-behavior-y:none; }
 @media (max-width: 768px) { .policy-nav { padding:0 24px; } .policy { padding:56px 24px 80px; } }
 
 /* ── Hero: keep the SAUNA BRIEFS waistband logo visible at every size ──
-   The logo sits at roughly x 60–69%, y 76–81% of hero.jpg. */
+   The logo sits at roughly x 58–71%, y 77–81% of hero-v2.jpg. */
 
 /* Portrait screens (phones, iPad portrait): photo on top, text below on the dark background.
    next/image `fill` sets inline position/size styles on the img, hence the !important. */

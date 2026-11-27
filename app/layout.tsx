@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sauna Briefs — Feel The Burn. Just Not Down There.",
     description: "Sauna briefs with a built-in ice pack pouch. $45, free US shipping.",
-    images: [{ url: "/hero.jpg", width: 2560, height: 1440 }],
+    images: [{ url: "/hero-v2.jpg", width: 2752, height: 1536 }],
   },
 };
 

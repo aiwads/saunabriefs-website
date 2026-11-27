@@ -99,7 +99,6 @@ export default function BuySection() {
               <small>Photo coming soon</small>
             </div>
           )}
-          <div className="product-tag">The Original</div>
         </div>
         <div className="buy-thumbs">
           {IMAGES.map((img, i) => (

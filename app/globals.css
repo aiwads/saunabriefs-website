@@ -81,6 +81,10 @@ body {
 .below-stat-label { font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
 .below-stat-num { font-size:2.4rem; font-weight:900; color:var(--accent); letter-spacing:-0.03em; line-height:1; white-space:nowrap; }
 /* Science numbers: icy blue = where they should be, amber (the hero's sauna light) = the heat, cream = the takeaway. */
+/* "hang" in the Under 95°F copy droops below the line and sways gently, like what it's describing. */
+.hang { display:inline-block; transform-origin:50% 0; transform:translateY(0.32em); animation:hang-sway 3.2s ease-in-out infinite; }
+@keyframes hang-sway { 0%,100% { transform:translateY(0.32em) rotate(-4deg); } 50% { transform:translateY(0.38em) rotate(4deg); } }
+@media (prefers-reduced-motion: reduce) { .hang { animation:none; } }
 .below-stat-num.is-cool { color:#B9DDEC; }
 .below-stat-num.is-hot { color:#E8923A; }
 .below-stat-num.is-cream { color:var(--text); }

@@ -181,7 +181,7 @@ export default function Home() {
             <div className="below-stat-num is-cool">Under 95°F</div>
             <div className="below-stat-text">
               Where your boys need to stay to make healthy sperm, a few degrees cooler than the rest of your body.
-              That&apos;s why they hang outside it.<sup><a href="#sources">1</a></sup>
+              That&apos;s why they <span className="hang">hang</span> outside it.<sup><a href="#sources">1</a></sup>
             </div>
           </div>
           <div className="below-stat">

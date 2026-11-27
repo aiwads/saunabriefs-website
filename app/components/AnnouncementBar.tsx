@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 export const ANNOUNCEMENTS = [
   "Free US shipping",
   "Ships within 2 business days",
-  "2 gel packs + cooler case included",
+  "2 ice packs + cooler case included",
   "30-day size exchanges",
 ];
 

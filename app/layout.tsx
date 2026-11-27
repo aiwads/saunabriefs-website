@@ -10,10 +10,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://saunabriefs.com"),
   title: "Sauna Briefs — Feel The Burn. Just Not Down There.",
   description:
-    "Sauna briefs with a built-in ice pack pouch. Protect your fertility and testosterone in the heat. $45, free US shipping.",
+    "Sauna briefs with a built-in ice pack pouch. Protect your fertility and testosterone in the heat. $49, free US shipping.",
   openGraph: {
     title: "Sauna Briefs — Feel The Burn. Just Not Down There.",
-    description: "Sauna briefs with a built-in ice pack pouch. $45, free US shipping.",
+    description: "Sauna briefs with a built-in ice pack pouch. $49, free US shipping.",
     images: [{ url: "/hero-v2.jpg", width: 2752, height: 1536 }],
   },
 };

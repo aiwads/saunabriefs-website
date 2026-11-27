@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, type RefObject } from "react";
-import { PRICE_CENTS, formatPrice } from "@/lib/catalog";
 
 export default function StickyBuyBar({ heroRef }: { heroRef: RefObject<HTMLElement | null> }) {
   const [visible, setVisible] = useState(false);
@@ -25,7 +24,7 @@ export default function StickyBuyBar({ heroRef }: { heroRef: RefObject<HTMLEleme
   return (
     <div className="sticky-bar" style={{ opacity: visible ? 1 : 0, pointerEvents: visible ? "auto" : "none" }}>
       <span className="sticky-bar-label">
-        Sauna Briefs — {formatPrice(PRICE_CENTS)}
+        Sauna Briefs
         <span className="sticky-bar-sub"> · Free US shipping</span>
       </span>
       <div className="sticky-bar-actions">

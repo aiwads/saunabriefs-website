@@ -9,7 +9,7 @@ import SizeChart from "./SizeChart";
 // src: null = placeholder until the real photo is added to /public
 const IMAGES: { src: string | null; alt: string }[] = [
   { src: "/product-ice-pack.jpg", alt: "Sauna Briefs in black with the ice pack in the pouch" },
-  { src: "/product-kit.jpg", alt: "What's in the kit: Sauna Briefs, 2 removable gel packs and a cooler case" },
+  { src: "/product-kit.jpg", alt: "What's in the kit: Sauna Briefs, 2 removable ice packs and a cooler case" },
   { src: "/product-lifestyle.jpg", alt: "Man relaxing in a wooden sauna wearing Sauna Briefs" },
   { src: "/product-on-body.jpg", alt: "Man wearing Sauna Briefs in black, front view showing the pouch" },
 ];

@@ -14,11 +14,11 @@ describe("catalog", () => {
     expect(lookupKey("XL")).toBe("sauna-briefs-kit-xl");
   });
   it("formats whole-dollar prices", () => {
-    expect(PRICE_CENTS).toBe(4500);
+    expect(PRICE_CENTS).toBe(4900);
     expect(formatPrice(4500)).toBe("$45");
     expect(formatPrice(9000)).toBe("$90");
   });
   it("lists the box contents", () => {
-    expect(BOX_CONTENTS).toEqual(["1 × Sauna Briefs", "2 × Slim ice packs", "1 × Ice pack cooler"]);
+    expect(BOX_CONTENTS).toEqual(["1 × Sauna Briefs", "2 × Ice packs", "1 × Ice pack cooler"]);
   });
 });

@@ -178,7 +178,7 @@ export default function Home() {
         <div>
           <div className="below-stat">
             <div className="below-stat-label">Built to run cool</div>
-            <div className="below-stat-num">Under 95°F</div>
+            <div className="below-stat-num is-cool">Under 95°F</div>
             <div className="below-stat-text">
               Where your boys need to stay to make healthy sperm, a few degrees cooler than the rest of your body.
               That&apos;s why they hang outside it.<sup><a href="#sources">1</a></sup>
@@ -186,7 +186,7 @@ export default function Home() {
           </div>
           <div className="below-stat">
             <div className="below-stat-label">Then you hit the sauna</div>
-            <div className="below-stat-num">104°F</div>
+            <div className="below-stat-num is-hot">104°F</div>
             <div className="below-stat-text">
               How hot your skin gets in a typical sauna.<sup><a href="#sources">2</a></sup> Studies have linked regular scrotal heating to
               lower sperm counts over time.<sup><a href="#sources">3</a></sup>
@@ -194,7 +194,7 @@ export default function Home() {
           </div>
           <div className="below-stat">
             <div className="below-stat-label">Every degree counts</div>
-            <div className="below-stat-num">~1.8°F</div>
+            <div className="below-stat-num is-cream">~1.8°F</div>
             <div className="below-stat-text">
               In one study, cooling the scrotum by just ~1.8°F each night, along with a few habit changes, significantly
               raised sperm counts within 12 weeks.<sup><a href="#sources">4</a></sup>

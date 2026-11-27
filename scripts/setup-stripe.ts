@@ -1,5 +1,5 @@
 /**
- * One-time, idempotent Stripe setup: creates the "Sauna Briefs Kit" product and one $45 price per size.
+ * One-time, idempotent Stripe setup: creates the "Sauna Briefs Kit" product and one price per size (PRICE_CENTS).
  * Run: npx tsx --env-file=.env.local scripts/setup-stripe.ts
  * Safe to run again — existing prices are left alone (including their stock counts).
  */

@@ -80,6 +80,10 @@ body {
 .below-stat:first-child { border-top:1px solid var(--border); }
 .below-stat-label { font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
 .below-stat-num { font-size:2.4rem; font-weight:900; color:var(--accent); letter-spacing:-0.03em; line-height:1; white-space:nowrap; }
+/* Science numbers: icy blue = where they should be, amber (the hero's sauna light) = the heat, cream = the takeaway. */
+.below-stat-num.is-cool { color:#B9DDEC; }
+.below-stat-num.is-hot { color:#E8923A; }
+.below-stat-num.is-cream { color:var(--text); }
 .below-stat-text { font-size:0.8rem; color:var(--muted); line-height:1.65; }
 .below-stat-text sup { font-size:0.6rem; }
 .below-stat-text sup a { color:var(--accent); text-decoration:none; padding:0 1px; }

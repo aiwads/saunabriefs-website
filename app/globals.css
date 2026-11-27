@@ -162,6 +162,9 @@ body {
 
 /* ── HERO CTA ── */
 html { scroll-behavior:smooth; }
+/* Home page: pulling down past the top (Safari overscroll) shows the announcement bar blue, not black.
+   Set in CSS so it applies from first paint; page.tsx switches it to dark once scrolled down. */
+html:has(.announce) { background-color:#3E6E85; }
 /* Nav is absolute (scrolls away), so jump past each section's top padding and land right at its content. */
 #shop, #faq, #science { scroll-margin-top:-96px; }
 @media (max-width: 768px) { #shop, #faq, #science { scroll-margin-top:-60px; } }

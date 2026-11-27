@@ -84,8 +84,8 @@ describe("Home header and hero perks", () => {
 });
 
 describe("Home overscroll colour", () => {
-  it("uses the bar blue behind the page at the top and the dark default once scrolled down", async () => {
-    const { BAR_BLUE } = await import("@/app/page");
+  it("leaves the CSS bar blue at the top and switches to the dark page colour once scrolled down", async () => {
+    const { PAGE_DARK } = await import("@/app/page");
     vi.stubGlobal("fetch", vi.fn(async () => Response.json({ stock: null })));
     Object.defineProperty(window, "scrollY", { value: 0, writable: true, configurable: true });
     const { unmount } = render(<Home />);
@@ -93,12 +93,10 @@ describe("Home overscroll colour", () => {
       const n = parseInt(hex.slice(1), 16);
       return `rgb(${n >> 16}, ${(n >> 8) & 255}, ${n & 255})`;
     };
-    expect(document.documentElement.style.backgroundColor).toBe(toRgb(BAR_BLUE));
+    expect(document.documentElement.style.backgroundColor).toBe("");
     window.scrollY = window.innerHeight * 2;
     fireEvent.scroll(window);
-    expect(document.documentElement.style.backgroundColor).toBe("");
-    window.scrollY = 0;
-    fireEvent.scroll(window);
+    expect(document.documentElement.style.backgroundColor).toBe(toRgb(PAGE_DARK));
     unmount();
     expect(document.documentElement.style.backgroundColor).toBe("");
   });

@@ -1,5 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+// Tints Safari's status bar / top area to match the announcement bar blue.
+export const viewport: Viewport = {
+  themeColor: "#3E6E85",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://saunabriefs.com"),

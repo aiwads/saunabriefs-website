@@ -13,8 +13,8 @@ const TICKER_ITEMS = [
   { stat: null, text: "Your sessions. Your rules. ", bold: "Stay cool." },
 ];
 
-// Announcement bar blue; also used for the area Safari shows when you pull down past the top.
-export const BAR_BLUE = "#3E6E85";
+// Page background (--bg); used for the area Safari shows when you bounce past the bottom.
+export const PAGE_DARK = "#0D0D0B";
 
 // Icon row under the hero "Shop now" button.
 const HERO_PERKS = [
@@ -44,13 +44,13 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Safari fills the pull-down (overscroll) area with the html background colour. Make it the bar blue
-  // near the top so pull-to-refresh matches the announcement bar; back to the dark default further down
-  // so the bounce below the footer stays dark.
+  // Safari fills the pull-down (overscroll) area with the html background colour. globals.css makes it
+  // the bar blue on this page from first paint (html:has(.announce)); once scrolled down, switch it to
+  // the dark page colour so the bounce below the footer stays dark.
   useEffect(() => {
     const root = document.documentElement;
     const update = () => {
-      root.style.backgroundColor = window.scrollY < window.innerHeight / 2 ? BAR_BLUE : "";
+      root.style.backgroundColor = window.scrollY < window.innerHeight / 2 ? "" : PAGE_DARK;
     };
     update();
     window.addEventListener("scroll", update, { passive: true });

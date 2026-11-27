@@ -11,7 +11,7 @@ const IMAGES: { src: string | null; alt: string }[] = [
   { src: "/product-ice-pack.jpg", alt: "Sauna Briefs in black with the ice pack in the pouch" },
   { src: "/product-kit.jpg", alt: "What's in the kit: Sauna Briefs, 2 removable gel packs and a cooler case" },
   { src: "/product-alt.jpg", alt: "Sauna Briefs with ice pack pouch" },
-  { src: null, alt: "Pouch open" },
+  { src: "/product-lifestyle.jpg", alt: "Man relaxing in a wooden sauna wearing Sauna Briefs" },
   { src: null, alt: "Ice pack being inserted" },
   { src: "/product-on-body.jpg", alt: "Man wearing Sauna Briefs in black, front view showing the pouch" },
 ];

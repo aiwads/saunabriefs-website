@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import BuySection from "./components/BuySection";
 import Faq from "./components/Faq";
@@ -12,6 +12,9 @@ const TICKER_ITEMS = [
   { stat: "180°F", text: "average sauna temp" },
   { stat: null, text: "Your sessions. Your rules. ", bold: "Stay cool." },
 ];
+
+// Announcement bar blue; also used for the area Safari shows when you pull down past the top.
+export const BAR_BLUE = "#3E6E85";
 
 // Icon row under the hero "Shop now" button.
 const HERO_PERKS = [
@@ -40,6 +43,22 @@ const HERO_PERKS = [
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Safari fills the pull-down (overscroll) area with the html background colour. Make it the bar blue
+  // near the top so pull-to-refresh matches the announcement bar; back to the dark default further down
+  // so the bounce below the footer stays dark.
+  useEffect(() => {
+    const root = document.documentElement;
+    const update = () => {
+      root.style.backgroundColor = window.scrollY < window.innerHeight / 2 ? BAR_BLUE : "";
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", update);
+      root.style.backgroundColor = "";
+    };
+  }, []);
   // The marquee scrolls by 50%, so it needs two identical halves; each half repeats the short item list
   // three times so the bar stays full on wide screens.
   const tickerHalf = [...TICKER_ITEMS, ...TICKER_ITEMS, ...TICKER_ITEMS];

@@ -27,12 +27,6 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:0
 .nav-btn { background:transparent; border:1px solid rgba(91,143,168,0.5); color:var(--accent); font-size:0.62rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; padding:9px 20px; cursor:pointer; font-family:'Inter',sans-serif; text-decoration:none; }
 
 /* HERO */
-/* Overscroll backdrop: sits directly above the page, same size and crop as .hero, and stretches the
-   hero's top edge (the lit ceiling) upward, so pulling down past the top (iOS rubber-band) shows the
-   hero continuing instead of a black gap. Flipped so the stretch starts at the seam with the hero. */
-.page { position:relative; }
-.overscroll-top { position:absolute; bottom:100%; left:0; right:0; height:100vh; height:100svh; min-height:700px; overflow:hidden; transform:scaleY(-1); pointer-events:none; }
-.overscroll-top img { transform:scaleY(80); transform-origin:top; }
 .hero { position:relative; width:100%; height:100vh; height:100svh; min-height:700px; overflow:hidden; display:flex; align-items:flex-end; }
 .hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; }
 .hero-overlay-bottom { position:absolute; inset:0; background:linear-gradient(to top, rgba(13,13,11,0.97) 0%, rgba(13,13,11,0.65) 28%, rgba(13,13,11,0.1) 60%, transparent 100%); }
@@ -146,7 +140,8 @@ nav { display:flex; align-items:center; justify-content:space-between; padding:0
 
 
 /* ── HERO CTA ── */
-html { scroll-behavior:smooth; }
+/* Stop the rubber-band bounce at the top/bottom of the page (it showed a black gap above the hero on iPhone). */
+html { scroll-behavior:smooth; overscroll-behavior-y:none; }
 /* Nav is absolute (scrolls away), so jump past each section's top padding and land right at its content. */
 #shop, #faq, #science { scroll-margin-top:-96px; }
 @media (max-width: 768px) { #shop, #faq, #science { scroll-margin-top:-60px; } }

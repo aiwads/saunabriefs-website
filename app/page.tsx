@@ -20,7 +20,12 @@ export default function Home() {
   const tickerItems = [...tickerHalf, ...tickerHalf];
 
   return (
-    <>
+    <div className="page">
+      {/* Hero backdrop above the top of the page (see .overscroll-top): pulling down past the top
+          (iOS rubber-band overscroll) shows the hero continuing instead of a black gap. */}
+      <div className="overscroll-top" aria-hidden="true">
+        <Image src="/hero.jpg" alt="" fill sizes="(max-width: 768px) 178vh, 100vw" quality={90} style={{ objectFit: "cover", objectPosition: "center top" }} />
+      </div>
       <nav>
         <a
           href="/"
@@ -152,6 +157,6 @@ export default function Home() {
         </div>
       </Footer>
       <StickyBuyBar heroRef={heroRef} />
-    </>
+    </div>
   );
 }

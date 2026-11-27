@@ -8,12 +8,12 @@ import SizeChart from "./SizeChart";
 
 // src: null = placeholder until the real photo is added to /public
 const IMAGES: { src: string | null; alt: string }[] = [
-  { src: "/product-main.jpg", alt: "Sauna Briefs in black" },
+  { src: "/product-ice-pack.jpg", alt: "Sauna Briefs in black with the ice pack in the pouch" },
+  { src: "/product-kit.jpg", alt: "What's in the kit: Sauna Briefs, 2 removable gel packs and a cooler case" },
   { src: "/product-alt.jpg", alt: "Sauna Briefs with ice pack pouch" },
-  { src: "/product-gel.jpg", alt: "Slim gel ice pack" },
   { src: null, alt: "Pouch open" },
   { src: null, alt: "Ice pack being inserted" },
-  { src: null, alt: "On-body side view" },
+  { src: "/product-on-body.jpg", alt: "Man wearing Sauna Briefs in black, front view showing the pouch" },
 ];
 
 type Stock = Record<Size, number> | null; // null = unknown; the server is the real gate
